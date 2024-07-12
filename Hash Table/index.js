@@ -28,8 +28,33 @@ class Hashtable {
         }
         return undefined;
     }
+    getAllKeys() {
+        const keys = [];
+        for ( let i = 0; i < this.keymap.length ; i++) {
+            if(this.keymap[i]) {
+                for (let j = 0 ; j < this.keymap[i].length; j++) {
+                    keys.push(this.keymap[i][j][0]);
+                }
+            }
+        }
+        return keys;
+    }
+    getAllValues() {
+        const values = [];
+        for(let i = 0; i < this.keymap.length; i++) {
+            if (this.keymap[i]) {
+                for(let j = 0; j < this.keymap[i].length; j++) {
+                    values.push(this.keymap[i][j][1]);
+                }
+            }
+        }
+        return values;
+    }
 }
 
 const res = new Hashtable();
-res.set("2121","To You To You");
-console.log(res.get("2121"));
+res.set("two","2222");
+res.set("seven","7777")
+// console.log(res.get("2121"));
+// console.log(res.getAllKeys());
+console.log(res.getAllValues());
