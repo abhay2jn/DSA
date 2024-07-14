@@ -40,6 +40,23 @@ class BST {
             }
         }
     }
+    includes(value) {                  // If that value already in tree then it gives true but if that value was not there so it gives false.
+        if (!this.root) {
+            return false;
+        }
+        let temp = this.root;
+        while(temp) {
+            if (value < temp.value) {
+                temp = temp.left;
+            } else if (value > temp.right) {
+                temp = temp.right;
+            } else if (value === temp.value) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
 
 
@@ -49,4 +66,4 @@ tree.insert(4);
 tree.insert(7);
 tree.insert(8);
 tree.insert(10);
-console.log(tree);
+console.log(tree.includes(22));
